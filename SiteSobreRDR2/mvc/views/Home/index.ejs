@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dead Redemption 2 - Guia Completo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* CSS mínimo necessário para manter o estilo exato */
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #D2B48C;
+            --dark-color: #2F1B0C;
+            --light-color: #F5F5DC;
+            --accent-color: #CD853F;
+        }
+        
+        body {
+            background-image: url('https://wallpaperswide.com/download/red_dead_redemption_2_dark_4k-wallpaper-1920x1536.jpg    ');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Raleway', sans-serif;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        .character-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--character-image);
+            background-size: cover;
+            background-position: top center;
+            transition: transform 0.5s ease;
+            filter: brightness(0.9);
+        }
+        
+        /* Ajustes individuais para cada personagem */
+        .character-card:nth-child(1) .character-img::before { /* Arthur */
+            background-position: top 25% center;
+        }
+        
+        .character-card:nth-child(2) .character-img::before { /* Dutch */
+            background-position: top 15% center;
+        }
+        
+        .character-card:nth-child(3) .character-img::before { /* John */
+            background-position: top 10% center;
+        }
+        
+        .character-card:nth-child(4) .character-img::before { /* Sadie */
+            background-position: top 30% center;
+        }
+        
+        .character-card:nth-child(5) .character-img::before { /* Hosea */
+            background-position: top 20% center;
+        }
+        
+        .character-card:nth-child(6) .character-img::before { /* Micah */
+            background-position: top 15% center;
+        }
+        
+        .assistant-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            70% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen">
+    <div class="flex flex-col min-h-screen">
+        <!-- Cabeçalho -->
+        <header class="bg-[url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center h-96 flex items-center justify-center relative mb-8">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80"></div>
+            <div class="text-center text-white z-10 px-8 py-4">
+                <h1 class="font-['Cinzel_Decorative'] text-5xl md:text-6xl mb-4 text-[#D2B48C] tracking-wider">RED DEAD REDEMPTION 2</h1>
+                <p class="text-xl italic text-[#F5F5DC]">A vida no Velho Oeste</p>
+            </div>
+        </header>
+
+        <!-- Menu de Navegação -->
+        <nav class="bg-[#2F1B0C] py-4 shadow-lg sticky top-0 z-50">
+            <ul class="flex justify-center flex-wrap">
+                <li class="mx-6"><a href="#" class="flex items-center text-[#F5F5DC] hover:bg-[#8B0000] hover:text-white px-4 py-2 rounded transition duration-300 bg-[#8B0000]"><i class="fas fa-home mr-2"></i> Início</a></li>
+                <li class="mx-6"><a href="historia.ejs" class="flex items-center text-[#F5F5DC] hover:bg-[#8B0000] hover:text-white px-4 py-2 rounded transition duration-300"><i class="fas fa-book mr-2"></i> História</a></li>
+                <li class="mx-6"><a href="#" class="flex items-center text-[#F5F5DC] hover:bg-[#8B0000] hover:text-white px-4 py-2 rounded transition duration-300"><i class="fas fa-users mr-2"></i> Personagens</a></li>
+                <li class="mx-6"><a href="#" class="flex items-center text-[#F5F5DC] hover:bg-[#8B0000] hover:text-white px-4 py-2 rounded transition duration-300"><i class="fas fa-map mr-2"></i> Mapa</a></li>
+                <li class="mx-6"><a href="#" class="flex items-center text-[#F5F5DC] hover:bg-[#8B0000] hover:text-white px-4 py-2 rounded transition duration-300"><i class="fas fa-question-circle mr-2"></i> Guias</a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="flex-grow px-8 py-4 max-w-7xl mx-auto w-full">
+            <section class="bg-[#2F1B0C] bg-opacity-80 text-[#F5F5DC] p-8 rounded-lg mb-12 border-l-4 border-[#8B0000]">
+                <h2 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative']"><i class="fas fa-star mr-2"></i> O Épico Faroeste</h2>
+                <p>Red Dead Redemption 2 é um conto épico da vida na América no alvorecer da era moderna. Arthur Morgan e a gangue Van der Linde são bandidos em fuga. Com agentes federais e os melhores caçadores de recompensas do país no seu encalço, a gangue precisa roubar, assaltar e lutar para sobreviver.</p>
+            </section>
+
+            <!-- Cards de Personagens -->
+            <section class="mb-12">
+                <h2 class="text-[#D2B48C] text-center mb-8 font-['Cinzel_Decorative'] text-2xl border-b-2 border-[#CD853F] pb-2 inline-block"><i class="fas fa-users mr-2"></i> Personagens Principais</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Arthur Morgan -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/originals/01/b0/3a/01b03adbef356a3a895436861900184f.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">Arthur Morgan</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>Protagonista do jogo e braço direito de Dutch. Um homem complexo, dividido entre sua lealdade à gangue e sua própria moralidade.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Somos ladrões em um mundo que não nos quer mais."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dutch van der Linde -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/736x/92/6e/35/926e35c089075232566f5e83f093a804.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">Dutch van der Linde</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>Líder carismático da gangue Van der Linde. Um idealista que acredita em um mundo livre do governo e das amarras da civilização.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Eu tenho um plano, Arthur. Tudo que preciso é de um pouco mais de dinheiro."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- John Marston -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/originals/f1/47/fe/f147fe026535d4b488ab7c6e4cb30845.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">John Marston</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>Membro da gangue e protagonista do primeiro Red Dead Redemption. Um homem tentando escapar de seu passado violento.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Não sou bom em muita coisa, mas sou bom em ser um fora-da-lei."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sadie Adler -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/736x/86/aa/3c/86aa3cc3bbb96238f8adbe93ea42d861.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">Sadie Adler</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>Uma mulher forte e determinada que se junta à gangue após uma tragédia pessoal. Uma das personagens mais marcantes do jogo.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Eu sou uma mulher diferente agora, Arthur. E não tenho medo de nada."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hosea Matthews -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/564x/3d/78/11/3d7811abec61ee3c1a2eec1fff4654de.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">Hosea Matthews</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>O estrategista e conselheiro da gangue, muitas vezes servindo como voz da razão. Um dos membros mais antigos do grupo.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Nós somos fantasmas, Arthur. E fantasmas não podem viver entre os vivos."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Micah Bell -->
+                    <div class="card bg-[#2F1B0C] bg-opacity-80 shadow-xl transition-transform duration-300 hover:-translate-y-2">
+                        <div class="character-img relative h-80 w-full overflow-hidden" style="--character-image: url('https://i.pinimg.com/1200x/15/cc/b6/15ccb6c3bf0c856e4d466c0f5ca70ece.jpg')">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 z-10">
+                                <h3 class="text-white font-['Cinzel_Decorative'] text-xl">Micah Bell</h3>
+                            </div>
+                        </div>
+                        <div class="card-body p-6 text-[#F5F5DC]">
+                            <p>Pistoleiro violento e imprevisível. Sua lealdade é questionável e seu caráter detestável.</p>
+                            <div class="italic mt-4 p-3 bg-[#8B0000] bg-opacity-20 border-l-4 border-[#8B0000]">
+                                <p>"Sobrevivência - esse é o único jogo que importa."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Gameplay -->
+            <section class="mb-12">
+                <h2 class="text-[#D2B48C] text-center mb-8 font-['Cinzel_Decorative'] text-2xl border-b-2 border-[#CD853F] pb-2 inline-block"><i class="fas fa-gamepad mr-2"></i> Mundo Aberto</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-[#2F1B0C] bg-opacity-80 p-8 rounded-lg text-center text-[#F5F5DC] transition-transform duration-300 hover:scale-105">
+                        <i class="fas fa-horse text-5xl text-[#D2B48C] mb-4"></i>
+                        <h3 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative']">Exploração</h3>
+                        <p>Descubra um mundo vasto e detalhado, desde montanhas cobertas de neve até pântanos sombrios.</p>
+                    </div>
+                    <div class="bg-[#2F1B0C] bg-opacity-80 p-8 rounded-lg text-center text-[#F5F5DC] transition-transform duration-300 hover:scale-105">
+                        <i class="fas fa-gun text-5xl text-[#D2B48C] mb-4"></i>
+                        <h3 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative']">Combate</h3>
+                        <p>Sistema de combate realista com Dead Eye, permitindo desacelerar o tempo durante tiroteios.</p>
+                    </div>
+                    <div class="bg-[#2F1B0C] bg-opacity-80 p-8 rounded-lg text-center text-[#F5F5DC] transition-transform duration-300 hover:scale-105">
+                        <i class="fas fa-campground text-5xl text-[#D2B48C] mb-4"></i>
+                        <h3 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative']">Sobrevivência</h3>
+                        <p>Cuide de suas necessidades básicas, alimente-se, mantenha-se aquecido e descanse adequadamente.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer class="bg-[#2F1B0C] text-[#F5F5DC] pt-12 mt-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-8">
+                <div class="flex justify-center md:justify-start">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Rockstar_Games_Logo.svg/1200px-Rockstar_Games_Logo.svg.png" alt="Rockstar Games" class="max-w-[200px] invert">
+                </div>
+                <div>
+                    <h4 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative'] text-lg">Explorar</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#" class="text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300">História</a></li>
+                        <li class="mb-2"><a href="#" class="text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300">Personagens</a></li>
+                        <li class="mb-2"><a href="#" class="text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300">Localizações</a></li>
+                        <li class="mb-2"><a href="#" class="text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300">Missões</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[#D2B48C] mb-4 font-['Cinzel_Decorative'] text-lg">Siga-nos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-2xl text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl text-[#F5F5DC] hover:text-[#D2B48C] transition duration-300"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center py-6 mt-8 bg-black bg-opacity-30">
+                <p>&copy; 2023 Red Dead Redemption 2 Fan Site. Não afiliado à Rockstar Games.</p>
+                <p>Todos os direitos do jogo pertencem à Rockstar Games.</p>
+            </div>
+        </footer>
+
+        <!-- Assistente Virtual -->
+        <div class="fixed bottom-8 right-8 w-16 h-16 bg-[#8B0000] rounded-full flex justify-center items-center cursor-pointer shadow-lg z-50 hover:scale-110 transition-transform duration-300" onclick="toggleChat()">
+            <img src="https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png" alt="Assistente Virtual" class="w-12 h-12 rounded-full">
+            <span class="assistant-pulse"></span>
+        </div>
+        
+        <!-- Caixa de conversa -->
+        <div id="chat-box" class="hidden fixed bottom-28 right-8 w-80 bg-white rounded-xl shadow-xl z-50">
+            <div class="bg-[#8B0000] text-white p-4 rounded-t-xl flex justify-between items-center">
+                <span><i class="fas fa-robot mr-2"></i> Assistente Virtual</span>
+                <button class="text-white" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="h-80 overflow-y-auto p-4 bg-gray-100">
+                <div class="flex mb-4">
+                    <div class="mr-3">
+                        <img src="https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA08519_00/12/i_3da1cf7c41dc7652f9b639e1680d96436773658668c7dc3930c441291095713b/i/icon0.png" alt="Assistente" class="w-10 h-10 rounded-full">
+                    </div>
+                    <div class="bg-gray-200 p-3 rounded-lg max-w-[70%]">
+                        <p>Olá, parceiro! Como posso ajudar você no jogo Red Dead Redemption 2?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex p-3 border-t border-gray-300 bg-white">
+                <input type="text" id="user-input" placeholder="Digite sua pergunta..." class="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-[#8B0000]">
+                <button id="send-btn" onclick="sendMessage()" class="bg-[#8B0000] text-white p-2 rounded-r-lg hover:bg-[#6B0000] transition duration-300">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/chatbot.js"></script>
+</body>
+</html>

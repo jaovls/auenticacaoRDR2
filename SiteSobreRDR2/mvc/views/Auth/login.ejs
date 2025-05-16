@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        form {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0px 0px 74px 28px rgba(0,0,0,0.26);
+            -webkit-box-shadow: 0px 0px 74px 28px rgba(0,0,0,0.26);
+            -moz-box-shadow: 0px 0px 74px 28px rgba(0,0,0,0.26);
+        }
+        
+        div {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4a6bff;
+        }
+        
+        button {
+            width: 100%;
+            padding: 0.9rem;
+            background-color: #4a6bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #3a5bef;
+        }
+        
+        @media (max-width: 480px) {
+            form {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="/auth" method="post">
+        <div>
+            <div>
+                <label for="usuario">Usuário</label>
+            </div>
+            <div>
+                <input type="text" name="usuario" id="usuario" placeholder="Digite seu usuário">
+            </div>
+        </div>
+        
+        <div>
+            <div>
+                <label for="senha">Senha</label>
+            </div>
+            <div>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+            </div>
+        </div>
+        
+        <div>
+            <button type="submit">Criar</button>
+        </div>
+
+        <!-- Exibição das mensagens de erro -->
+        <% if (invalido) { %>
+            <span class="error"><%= invalido %></span>
+        <% } %>
+        <% if (usuarioInvalido) { %>
+            <span class="error"><%= usuarioInvalido %></span>
+        <% } %>
+        <% if (senhaInvalida) { %>
+            <span class="error"><%= senhaInvalida %></span>
+        <% } %>
+    </form>
+</body>
+</html>
